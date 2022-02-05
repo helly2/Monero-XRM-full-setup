@@ -14,6 +14,7 @@ Clean install Ubuntu 20.04 Server
 
 You can download official ISO here 
 https://ubuntu.com/download/server
+Check OpenSSH during install to manage remote server.
 
 User and permissions
 --------------------
