@@ -11,10 +11,14 @@ Server Requirements
 
 Clean install Ubuntu 20.04 Server
 ---------------------------------
+
 You can download official ISO here 
 https://ubuntu.com/download/server
 
-2.Create a non root user and add permisions
+User and permissions
+--------------------
+
+Create a non root user and add permisions
 
 ```text
 sudo visudo
@@ -27,7 +31,8 @@ Control+O then Intro to save changes
 
 Control+X to exit visudo
 
-3.Pre-deploy install
+Pre-deploy install
+--------------------
 
 Run all this commands in terminal one by one and check they install correctly
 
