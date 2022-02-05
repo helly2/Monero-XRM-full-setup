@@ -32,7 +32,7 @@ Control+O then Intro to save changes
 Control+X to exit visudo
 
 Pre-deploy install
---------------------
+------------------
 
 Run all this commands in terminal one by one and check they install correctly
 
@@ -53,7 +53,16 @@ sudo apt-get install -y npm
 sudo npm install pm2 -g
 ```
 
+Deploy install
+--------------
+
 to be continued.....
+
+Wallet Setup
+------------
+to be continued.....
+
+
 
 Pool Design/Theory
 ==================
