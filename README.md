@@ -303,3 +303,7 @@ Credits
 [Mesh00](https://github.com/mesh0000) - Frontend build in Angular JS [XMRPoolUI](https://github.com/mesh0000/poolui)
 
 [Wolf0](https://github.com/wolf9466/)/[OhGodAGirl](https://github.com/ohgodagirl) - Rebuild of node-multi-hashing with AES-NI [node-multi-hashing](https://github.com/Snipa22/node-multi-hashing-aesni)
+
+[MoneroOcean](https://github.com/MoneroOcean/nodejs-pool) - Monero Ocean
+
+
