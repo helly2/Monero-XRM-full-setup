@@ -1,6 +1,14 @@
 Setup Guide
 ==================
 
+Server Requirements
+-------------------
+* Ubuntu 20.04, 18.04 (confirmed working)
+* 8 Gb Ram
+* 2 CPU Cores (with AES_NI)
+* 150 Gb SSD-Backed Storage - If you're doing a multi-server install, the leaf nodes do not need this much storage.  They just need enough storage to hold the blockchain for your node.  The pool comes configured to use up to 60Gb of storage for LMDB.  Assuming you have the longRunner worker running, it should never get near this size, but be aware that it /can/ bloat readily if things error, so be ready for this!
+* Notably, this happens to be approximately the size of a 4Gb linode instance, which is where the majority of automated deployment testing happened!
+
 1.Clean install Ubuntu 20.04 Server
 
 2.Create a non root user and add permisions
@@ -72,13 +80,7 @@ It is critically important that your webserver does not truncate the `/leafApi` 
 Setup Instructions
 ==================
 
-Server Requirements
--------------------
-* Ubuntu 20.04, 18.04 (confirmed working)
-* 8 Gb Ram
-* 2 CPU Cores (with AES_NI)
-* 150 Gb SSD-Backed Storage - If you're doing a multi-server install, the leaf nodes do not need this much storage.  They just need enough storage to hold the blockchain for your node.  The pool comes configured to use up to 60Gb of storage for LMDB.  Assuming you have the longRunner worker running, it should never get near this size, but be aware that it /can/ bloat readily if things error, so be ready for this!
-* Notably, this happens to be approximately the size of a 4Gb linode instance, which is where the majority of automated deployment testing happened!
+
 
 Pre-Deploy
 ----------
