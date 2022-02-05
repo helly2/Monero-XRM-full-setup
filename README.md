@@ -1,7 +1,43 @@
 Setup Guide
 ==================
 
-Coming soon.....
+1.Clean install Ubuntu 20.04 Server
+
+2.Create a non root user and add permisions
+
+```text
+sudo visudo
+```
+Add following line changing pool for your username
+
+pool ALL=(ALL) NOPASSWD:ALL
+
+Control+O then Intro to save changes
+
+Control+X to exit visudo
+
+3.Pre-deploy install
+
+Run all this commands in terminal one by one and check they install correctly
+
+```text
+sudo apt update
+sudo apt-get upgrade
+sudo apt-get install -y git
+sudo apt-get install -y nano
+sudo apt-get install -y curl
+sudo apt-get install -y cmake
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y pkg-config
+sudo apt-get install -y cmake libblkid-dev e2fslibs-dev libboost-all-dev libaudit-dev
+sudo apt-get install -y libzmq-dev
+sudo apt-get install -y libzmq3-dev
+sudo apt-get install -y mysql-server
+sudo apt-get install -y npm
+sudo npm install pm2 -g
+```
+
+to be continued.....
 
 Pool Design/Theory
 ==================
