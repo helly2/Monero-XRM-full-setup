@@ -17,7 +17,9 @@ echo -e "[client]\nuser=root\npassword=$ROOT_SQL_PASS" | sudo tee /root/.my.cnf
 DEBIAN_FRONTEND=noninteractive sudo --preserve-env=DEBIAN_FRONTEND apt-get -y install libcap2-bin git python python-virtualenv python3-virtualenv curl ntp build-essential screen cmake pkg-config libboost-all-dev libevent-dev libunbound-dev libminiupnpc-dev libunwind8-dev liblzma-dev libldns-dev libexpat1-dev mysql-server lmdb-utils libzmq3-dev libsodium-dev
 cd ~
 git clone https://github.com/MoneroOcean/nodejs-pool.git
-sudo systemctl enable ntp
+sudo apt-get install -y ntp
+sudo timedatectl set-ntp on
+sudo service ntp restart
 cd /usr/local/src
 sudo git clone https://github.com/monero-project/monero.git
 cd monero
@@ -74,7 +76,7 @@ sudo systemctl enable caddy.service
 sudo systemctl start caddy.service
 rm -rf $CADDY_DOWNLOAD_DIR
 cd ~
-sudo env PATH=$PATH:`pwd`/.nvm/versions/node/v8.11.3/bin `pwd`/.nvm/versions/node/v8.11.3/lib/node_modules/pm2/bin/pm2 startup systemd -u $CURUSER --hp `pwd`
+sudo env PATH=$PATH:`pwd`/.nvm/versions/node/v14.17.3/bin `pwd`/.nvm/versions/node/v14.17.3/lib/node_modules/pm2/bin/pm2 startup systemd -u $CURUSER --hp `pwd`
 cd ~/nodejs-pool
 sudo chown -R $CURUSER ~/.pm2
 echo "Installing pm2-logrotate in the background!"
