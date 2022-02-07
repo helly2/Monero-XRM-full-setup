@@ -1,17 +1,18 @@
-# Catch-all vhost
 :80 {
-    root /var/www
-    proxy /leafApi 127.0.0.1:8000
-    proxy /api 127.0.0.1:8001 {
-        without /api
-    }
-    proxy /socket.io 127.0.0.1:8001 {
-        header_upstream Connection {>Connection}
-        header_upstream Upgrade {>Upgrade}
-    }
-    header / {
-        Access-Control-Allow-Methods "GET, POST, OPTIONS"
-        Access-Control-Allow-Headers "Content-Type, x-access-token"
-    }
-    gzip
+	# Set this path to your site's directory.
+	#root * /usr/share/caddy
+
+	# Enable the static file server.
+	file_server
+
+	# Another common task is to set up a reverse proxy:
+	# reverse_proxy localhost:8080
+
+	# Or serve a PHP site through php-fpm:
+	# php_fastcgi localhost:9000
+	root * /var/www
+	reverse_proxy /leafApi localhost:8000
+	reverse_proxy /api localhost:8001
+	reverse_proxy /socket.io localhost:8001
+	encode gzip zstd
 }
