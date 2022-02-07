@@ -48,30 +48,13 @@ cd poolui
 npm install
 cd build
 sudo ln -s `pwd` /var/www
-CADDY_DOWNLOAD_DIR=$(mktemp -d)
-cd $CADDY_DOWNLOAD_DIR
-curl -sL "https://github.com/caddyserver/caddy/releases/download/v2.4.6/caddy_2.4.6_linux_amd64.tar.gz" | tar -xz caddy init/linux-systemd/caddy.service
-sudo mv caddy /usr/local/bin
-sudo chown root:root /usr/local/bin/caddy
-sudo chmod 755 /usr/local/bin/caddy
-sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
-sudo groupadd -g 33 www-data
-sudo useradd -g www-data --no-user-group --home-dir /var/www --no-create-home --shell /usr/sbin/nologin --system --uid 33 www-data
-sudo mkdir /etc/caddy
-sudo chown -R root:www-data /etc/caddy
-sudo mkdir /etc/ssl/caddy
-sudo chown -R www-data:root /etc/ssl/caddy
-sudo chmod 0770 /etc/ssl/caddy
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/caddy-stable.asc
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update
+sudo apt install caddy
 sudo cp ~/nodejs-pool/deployment/caddyfile /etc/caddy/Caddyfile
-sudo chown www-data:www-data /etc/caddy/Caddyfile
-sudo chmod 444 /etc/caddy/Caddyfile
-sudo sh -c "sed 's/ProtectHome=true/ProtectHome=false/' init/linux-systemd/caddy.service > /etc/systemd/system/caddy.service"
-sudo chown root:root /etc/systemd/system/caddy.service
-sudo chmod 644 /etc/systemd/system/caddy.service
-sudo systemctl daemon-reload
-sudo systemctl enable caddy.service
-sudo systemctl start caddy.service
-rm -rf $CADDY_DOWNLOAD_DIR
+sudo service caddy restart
 cd ~
 sudo env PATH=$PATH:`pwd`/.nvm/versions/node/v14.17.3/bin `pwd`/.nvm/versions/node/v14.17.3/lib/node_modules/pm2/bin/pm2 startup systemd -u $CURUSER --hp `pwd`
 cd ~/nodejs-pool
