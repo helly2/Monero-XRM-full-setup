@@ -57,7 +57,13 @@ sudo npm install pm2 -g
 Deploy install
 --------------
 
-to be continued.....
+Run as a NON ROOT user
+
+```text
+wget https://raw.githubusercontent.com/helly2/nodejs-pool/master/deployment/deploy.bash
+bash deploy.bash
+```
+
 
 Wallet Setup
 ------------
