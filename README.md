@@ -64,6 +64,12 @@ wget https://raw.githubusercontent.com/helly2/nodejs-pool/master/deployment/depl
 bash deploy.bash
 ```
 
+or
+
+```bash
+curl -L https://raw.githubusercontent.com/helly2/nodejs-pool/master/deployment/deploy.bash | bash
+```
+
 
 Wallet Setup
 ------------
@@ -148,7 +154,7 @@ pm2 restart api
 
 Install Script:
 ```bash
-curl -L https://raw.githubusercontent.com/MoneroOcean/nodejs-pool/master/deployment/deploy.bash | bash
+curl -L https://raw.githubusercontent.com/helly2/nodejs-pool/master/deployment/deploy.bash | bash
 ```
 
 Assumptions for the installer
