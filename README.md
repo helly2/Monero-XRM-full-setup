@@ -70,6 +70,14 @@ Wallet Setup
 to be continued.....
 
 
+Start Mining
+------------
+
+The pool won´t be 100% working until daemon is completely synced, you can see if monerod is synced running
+
+```text
+tail -f /home/monerodaemon/.bitmonero/bitmonero.log
+```
 
 Pool Design/Theory
 ==================
