@@ -42,10 +42,11 @@ openssl req -subj "/C=IT/ST=Pool/L=Daemon/O=Mining Pool/CN=mining.pool" -newkey 
 mkdir ~/pool_db/
 sed -r "s/(\"db_storage_path\": ).*/\1\"\/home\/$CURUSER\/pool_db\/\",/" config_example.json > config.json
 cd ~
-cd ~
 git clone https://github.com/mesh0000/poolui.git
 cd poolui
 npm install
+./node_modules/bower/bin/bower update
+./node_modules/gulp/bin/gulp.js build
 cd build
 sudo ln -s `pwd` /var/www
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
