@@ -1,17 +1,11 @@
-# Catch-all vhost
+http://192.168.56.1/api {
+    reverse_proxy /leafApi 127.0.0.1:8000
+    reverse_proxy /socket.io 127.0.0.1:8001
+    encode gzip zstd
+    }
 :80 {
-    root /var/www
-    proxy /leafApi 127.0.0.1:8000
-    proxy /api 127.0.0.1:8001 {
-        without /api
-    }
-    proxy /socket.io 127.0.0.1:8001 {
-        header_upstream Connection {>Connection}
-        header_upstream Upgrade {>Upgrade}
-    }
-    header / {
-        Access-Control-Allow-Methods "GET, POST, OPTIONS"
-        Access-Control-Allow-Headers "Content-Type, x-access-token"
-    }
-    gzip
+	file_server
+	root * /var/www
+	encode gzip zstd
 }
+
