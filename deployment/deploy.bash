@@ -35,7 +35,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | b
 source ~/.nvm/nvm.sh
 nvm install v14.17.3
 nvm alias default v14.17.3
-cd ~/Monero-XRM-pool-full-setup-guide
+cd ~/nodejs-pool
 npm install
 npm install -g pm2
 openssl req -subj "/C=IT/ST=Pool/L=Daemon/O=Mining Pool/CN=mining.pool" -newkey rsa:2048 -nodes -keyout cert.key -x509 -out cert.pem -days 36500
