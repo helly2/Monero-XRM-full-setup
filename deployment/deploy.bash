@@ -26,7 +26,7 @@ cd monero
 sudo git checkout v0.17.2.3
 sudo git submodule update --init
 USE_SINGLE_BUILDDIR=1 sudo --preserve-env=USE_SINGLE_BUILDDIR make -j$(nproc) release || USE_SINGLE_BUILDDIR=1 sudo --preserve-env=USE_SINGLE_BUILDDIR make release || exit 0
-sudo cp ~/nodejs-pool/deployment/monero.service /lib/systemd/system/
+sudo cp ~/Monero-XRM-pool-full-setup-guide/deployment/monero.service /lib/systemd/system/
 sudo useradd -m monerodaemon -d /home/monerodaemon
 sudo systemctl daemon-reload
 sudo systemctl enable monero
@@ -35,7 +35,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | b
 source ~/.nvm/nvm.sh
 nvm install v14.17.3
 nvm alias default v14.17.3
-cd ~/nodejs-pool
+cd ~/Monero-XRM-pool-full-setup-guide
 npm install
 npm install -g pm2
 openssl req -subj "/C=IT/ST=Pool/L=Daemon/O=Mining Pool/CN=mining.pool" -newkey rsa:2048 -nodes -keyout cert.key -x509 -out cert.pem -days 36500
@@ -56,11 +56,11 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /et
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
 sudo apt update
 sudo apt install caddy
-sudo cp ~/nodejs-pool/deployment/caddyfile /etc/caddy/Caddyfile
+sudo cp ~/Monero-XRM-pool-full-setup-guide/deployment/caddyfile /etc/caddy/Caddyfile
 sudo service caddy restart
 cd ~
 sudo env PATH=$PATH:`pwd`/.nvm/versions/node/v14.17.3/bin `pwd`/.nvm/versions/node/v14.17.3/lib/node_modules/pm2/bin/pm2 startup systemd -u $CURUSER --hp `pwd`
-cd ~/nodejs-pool
+cd ~/Monero-XRM-pool-full-setup-guide
 sudo chown -R $CURUSER ~/.pm2
 echo "Installing pm2-logrotate in the background!"
 pm2 install pm2-logrotate &
