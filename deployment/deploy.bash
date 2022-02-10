@@ -16,7 +16,7 @@ sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again p
 echo -e "[client]\nuser=root\npassword=$ROOT_SQL_PASS" | sudo tee /root/.my.cnf
 DEBIAN_FRONTEND=noninteractive sudo --preserve-env=DEBIAN_FRONTEND apt-get -y install libcap2-bin git python python-virtualenv python3-virtualenv curl ntp build-essential screen cmake pkg-config libboost-all-dev libevent-dev libunbound-dev libminiupnpc-dev libunwind8-dev liblzma-dev libldns-dev libexpat1-dev mysql-server lmdb-utils libzmq3-dev libsodium-dev
 cd ~
-git clone https://github.com/helly2/Monero-XRM-pool-full-setup-guide.git
+git clone https://github.com/helly2/nodejs-pool.git
 sudo apt-get install -y ntp
 sudo timedatectl set-ntp on
 sudo service ntp restart
@@ -56,7 +56,7 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /et
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
 sudo apt update
 sudo apt install caddy
-sudo cp ~/Monero-XRM-pool-full-setup-guide/deployment/caddyfile /etc/caddy/Caddyfile
+sudo cp ~/nodejs-pool/deployment/caddyfile /etc/caddy/Caddyfile
 sudo service caddy restart
 cd ~
 sudo env PATH=$PATH:`pwd`/.nvm/versions/node/v14.17.3/bin `pwd`/.nvm/versions/node/v14.17.3/lib/node_modules/pm2/bin/pm2 startup systemd -u $CURUSER --hp `pwd`
