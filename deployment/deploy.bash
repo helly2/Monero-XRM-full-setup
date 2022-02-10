@@ -26,7 +26,7 @@ cd monero
 sudo git checkout v0.17.2.3
 sudo git submodule update --init
 USE_SINGLE_BUILDDIR=1 sudo --preserve-env=USE_SINGLE_BUILDDIR make -j$(nproc) release || USE_SINGLE_BUILDDIR=1 sudo --preserve-env=USE_SINGLE_BUILDDIR make release || exit 0
-sudo cp ~/Monero-XRM-pool-full-setup-guide/deployment/monero.service /lib/systemd/system/
+sudo cp ~/nodejs-pool/deployment/monero.service /lib/systemd/system/
 sudo useradd -m monerodaemon -d /home/monerodaemon
 sudo systemctl daemon-reload
 sudo systemctl enable monero
