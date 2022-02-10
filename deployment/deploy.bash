@@ -60,7 +60,7 @@ sudo cp ~/nodejs-pool/deployment/caddyfile /etc/caddy/Caddyfile
 sudo service caddy restart
 cd ~
 sudo env PATH=$PATH:`pwd`/.nvm/versions/node/v14.17.3/bin `pwd`/.nvm/versions/node/v14.17.3/lib/node_modules/pm2/bin/pm2 startup systemd -u $CURUSER --hp `pwd`
-cd ~/Monero-XRM-pool-full-setup-guide
+cd ~/nodejs-pool
 sudo chown -R $CURUSER ~/.pm2
 echo "Installing pm2-logrotate in the background!"
 pm2 install pm2-logrotate &
