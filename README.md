@@ -102,6 +102,18 @@ The pool won´t be 100% working until daemon is completely synced, you can see i
 tail -f /home/monerodaemon/.bitmonero/bitmonero.log
 ```
 
+This is a slow process so if you want to make it faster you can import
+
+```text
+BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u monerodaemon mktemp -d)
+sudo -u monerodaemon wget --limit-rate=50m -O $BLOCKCHAIN_DOWNLOAD_DIR/blockchain.raw https://downloads.getmonero.org/blockchain.raw
+sudo -u monerodaemon /usr/local/src/monero/build/release/bin/monero-blockchain-import --dangerous-unverified-import 0 --input-file $BLOCKCHAIN_DOWNLOAD_DIR/blockchain.raw
+sudo -u monerodaemon rm -rf $BLOCKCHAIN_DOWNLOAD_DIR
+```
+
+Takes much less time but be patient...
+
+
 Pool Design/Theory
 ==================
 The nodejs-pool is built around a small series of core daemons that share access to a single LMDB table for tracking of shares, with MySQL being used to centralize configurations and ensure simple access from local/remote nodes.  The core daemons follow:
