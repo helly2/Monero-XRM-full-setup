@@ -113,6 +113,22 @@ sudo -u monerodaemon rm -rf $BLOCKCHAIN_DOWNLOAD_DIR
 
 Takes much less time but be patient...
 
+Known issues
+------------
+
+unable to resolve host 'nameofyourhost'
+
+```text
+sudo vim /etc/hosts
+```
+
+ad or change second line
+
+```text
+127.0.0.1 localhost
+127.0.1.1 avalon nameofserver
+```
+
 
 Pool Design/Theory
 ==================
