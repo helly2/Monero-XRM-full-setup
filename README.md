@@ -73,8 +73,13 @@ curl -L https://raw.githubusercontent.com/helly2/nodejs-pool/master/deployment/d
 
 Wallet Setup
 ------------
-to be continued.....
 
+Set you wallet adrress 
+
+```text
+UPDATE pool.config SET item_value = '4xx put your wallet here' WHERE module = 'pool' and item = 'address';
+UPDATE pool.config SET item_value = '4xx put your another wallet here' WHERE module = 'payout' and item = 'feeAddress';
+```
 
 Launch Pool Daemons
 -------------------
