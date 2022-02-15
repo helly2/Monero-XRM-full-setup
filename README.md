@@ -19,7 +19,16 @@ Check OpenSSH during install to manage remote server.
 User and permissions
 --------------------
 
-Create a non root user and add permisions
+Create a non root user 
+
+```text
+sudo mkdir /home/pool
+sudo useradd pool
+sudo passwd pool
+su - pool
+```
+
+Add permisions 
 
 ```text
 sudo visudo
