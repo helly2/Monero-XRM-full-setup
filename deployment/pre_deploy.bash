@@ -13,3 +13,4 @@ sudo apt-get install -y libzmq3-dev
 sudo apt-get install -y mysql-server
 sudo apt-get install -y npm
 sudo npm install pm2 -g
+sudo apt install systemd-timesyncd
