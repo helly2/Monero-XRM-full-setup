@@ -25,6 +25,8 @@ Create a non root user
 sudo mkdir /home/pool
 sudo useradd pool
 sudo passwd pool
+sudo adduser pool pool
+sudo chown -R pool:pool /home/pool
 su - pool
 ```
 
