@@ -27,6 +27,7 @@ sudo useradd pool
 sudo passwd pool
 sudo adduser pool pool
 sudo chown -R pool:pool /home/pool
+sudo usermod -aG sudo pool
 su - pool
 ```
 
