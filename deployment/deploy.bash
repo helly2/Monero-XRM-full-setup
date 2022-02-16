@@ -18,6 +18,7 @@ DEBIAN_FRONTEND=noninteractive sudo --preserve-env=DEBIAN_FRONTEND apt-get -y in
 cd ~
 sudo git clone https://github.com/helly2/nodejs-pool.git
 sudo apt-get install -y ntp
+sudo apt install systemd-timesyncd
 sudo timedatectl set-ntp on
 sudo systemctl unmask ntp
 sudo service ntp restart
