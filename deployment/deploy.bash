@@ -33,7 +33,6 @@ sudo useradd -m monerodaemon -d /home/monerodaemon
 sudo systemctl daemon-reload
 sudo systemctl enable monero
 sudo systemctl start monero
-sudo mkdir /home/pool/.nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v14.17.3
